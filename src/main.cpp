@@ -24,6 +24,19 @@ while(1){
     PORTD &= ~((1<<PD6)|(1<<PD7));
     break;
     case 1:
+     PORTD |= (1<<PD6);
+     PORTD &= ~(1<<PD7);
+break;
+
+case 2:
+
+PORTD |= (1<<PD7);
+PORTD &= ~(1<<PD6);
   }
 }
+}
+ISR(INT0_vect){
+  _delay_ms(100);
+  estado++;
+  if(estado >2) estado = 0;
 }
